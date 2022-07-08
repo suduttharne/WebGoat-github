@@ -42,6 +42,7 @@ public class TokenTest {
 
     @Test
     public void test() {
+        // deepcode ignore NonCryptoHardcodedSecret/test: Checking if it shows on Snyk Dashboard
         String key = "qwertyqwerty1234";
         Map<String, Object> claims = Map.of("username", "Jerry", "aud", "webgoat.org", "email", "jerry@webgoat.com");
         String token = Jwts.builder()
