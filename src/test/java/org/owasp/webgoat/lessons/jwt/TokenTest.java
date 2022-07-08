@@ -51,6 +51,7 @@ public class TokenTest {
                 .setClaims(claims)
                 .signWith(io.jsonwebtoken.SignatureAlgorithm.HS512, key).compact();
         log.debug(token);
+        // deepcode ignore NonCryptoHardcodedSecret/test: Snyk ignore 2
         Jwt jwt = Jwts.parser().setSigningKey("qwertyqwerty1234").parse(token);
         jwt = Jwts.parser().setSigningKeyResolver(new SigningKeyResolverAdapter() {
             @Override
