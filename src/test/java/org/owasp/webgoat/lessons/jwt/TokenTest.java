@@ -42,7 +42,6 @@ public class TokenTest {
 
     @Test
     public void test() {
-        // deepcode ignore NonCryptoHardcodedSecret/test: Checking if it shows on Snyk Dashboard
         String key = "qwertyqwerty1234";
         Map<String, Object> claims = Map.of("username", "Jerry", "aud", "webgoat.org", "email", "jerry@webgoat.com");
         String token = Jwts.builder()
@@ -51,7 +50,6 @@ public class TokenTest {
                 .setClaims(claims)
                 .signWith(io.jsonwebtoken.SignatureAlgorithm.HS512, key).compact();
         log.debug(token);
-        // deepcode ignore NonCryptoHardcodedSecret/test: Snyk ignore 2
         Jwt jwt = Jwts.parser().setSigningKey("qwertyqwerty1234").parse(token);
         jwt = Jwts.parser().setSigningKeyResolver(new SigningKeyResolverAdapter() {
             @Override
